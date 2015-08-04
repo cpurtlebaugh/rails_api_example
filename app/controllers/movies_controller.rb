@@ -10,6 +10,11 @@ class MoviesController < ApplicationController
   # GET /movies/1
   # GET /movies/1.json
   def show
+    respond_to do |format|
+      format.json do
+        render json: {movie: @movie, actors: @movie.actors}
+      end
+    end
   end
 
   # GET /movies/new
